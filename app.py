@@ -1,4 +1,4 @@
-import os, subprocess, time
+import os, shlex, subprocess, time
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox, QFileDialog
 
@@ -129,12 +129,12 @@ class App(QMainWindow):
         if len(password) > 0:
             passwordParam = '-pass pass:' + password
 
-        commandLine = 'openssl enc -{0} {1} {2} -in {3} -out {4}'.format(
+        commandLine = 'openssl enc -{0} {1} {2} -in "{3}" -out "{4}"'.format(
             enc, additionalParams, passwordParam, filename, targetFilename
         )
 
         process = subprocess.Popen(
-            commandLine.split(),
+            shlex.split(commandLine),
             stdout = subprocess.PIPE,
             stderr = subprocess.PIPE
         )
