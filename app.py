@@ -142,10 +142,10 @@ class App(QMainWindow):
 
         msg = QMessageBox()
         msg.setWindowTitle('Operation finished')
-        if len(stderr) == 0 and os.path.isfile(targetFilename):
+        if process.returncode == 0 and os.path.isfile(targetFilename):
             msg.setIcon(QMessageBox.Information)
-            msg.setText('Your file was sucessfully decripted at "{0}"!'.format(targetFilename))
-            msg.setDetailedText(stdout.decode('utf-8'))
+            msg.setText('Your file was sucessfully processed at "{0}"!'.format(targetFilename))
+            msg.setDetailedText(stderr.decode('utf-8') + "\n" + stdout.decode('utf-8'))
         else:
             msg.setIcon(QMessageBox.Critical)
             msg.setText('An error has occurred. Check your password and encryption method.')
