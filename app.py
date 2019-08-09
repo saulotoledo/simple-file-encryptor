@@ -118,6 +118,9 @@ class App(QMainWindow):
         enc = self.encValues[str(self.cbEncryption.currentText())]
         filename = self.leFile.text().strip()
         targetFilename = self.__generateTargetFilename(filename, decrypt)
+        md = ''
+        if self.cbForceMD5Pwd.isChecked():
+            md = '-md md5'
 
         additionalParams = '-salt'
         if decrypt:
@@ -129,8 +132,8 @@ class App(QMainWindow):
         if len(password) > 0:
             passwordParam = '-pass pass:' + password
 
-        commandLine = 'openssl enc -{0} {1} {2} -in "{3}" -out "{4}"'.format(
-            enc, additionalParams, passwordParam, filename, targetFilename
+        commandLine = 'openssl enc -{0} {1} {2} {3} -in "{4}" -out "{5}"'.format(
+            enc, md, additionalParams, passwordParam, filename, targetFilename
         )
 
         process = subprocess.Popen(

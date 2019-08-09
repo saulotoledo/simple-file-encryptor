@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>665</width>
-    <height>270</height>
+    <width>695</width>
+    <height>313</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,31 @@
   </property>
   <widget class="QWidget" name="wFile">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="4" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <property name="leftMargin">
+       <number>15</number>
+      </property>
+      <property name="rightMargin">
+       <number>15</number>
+      </property>
+      <item>
+       <widget class="QCheckBox" name="cbForceMD5Pwd">
+        <property name="text">
+         <string>Force MD5 digest method (OpenSSL 1.1.0+. May be required for files encrypted with previous versions)</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
     <item row="3" column="0">
+     <widget class="Line" name="line_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="leftMargin">
        <number>15</number>
@@ -141,7 +165,7 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <property name="bottomMargin">
-           <number>6</number>
+           <number>3</number>
           </property>
           <item>
            <widget class="QLabel" name="label_2">
@@ -152,6 +176,12 @@
           </item>
           <item>
            <widget class="QLineEdit" name="lePassword">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>21</height>
+             </size>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -180,7 +210,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>665</width>
+     <width>695</width>
      <height>22</height>
     </rect>
    </property>
